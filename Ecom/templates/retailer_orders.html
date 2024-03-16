@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retailer Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Retailer Orders</h1>
+
+    <table>
+        <tr>
+            <th>House Address</th>
+            <th>Timestamp</th>
+            <th>Price</th>
+            <th>Wallet Address</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order['House Address'] }}</td>
+            <td>{{ order['Timestamp'] }}</td>
+            <td>{{ order['Price'] }}</td>
+            <td>{{ order['Wallet Address'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner and Wallet Connection</title>
+</head>
+<body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ethereum-wallet-link@1.0.3/dist/wallet-link.js"></script>
+
+    <script type="text/javascript">
+        window.userWalletAddress = null;
+
+        async function connectWalletwithMetaMask() {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+                .catch((e) => {
+                    console.error(e.message);
+                    return;
+                });
+
+            if (!accounts) { return; }
+
+            window.userWalletAddress = accounts[0];
+
+            // Form the URL for verification
+            const pid = "{{ scanned_data }}"; // Access Flask session variable in Jinja template
+            const normalizedWalletAddress = window.userWalletAddress.toLowerCase(); // Normalize to lowercase
+            const verificationUrl = `http://127.0.0.1:5000/verify?pid=${pid}&wallet_address=${normalizedWalletAddress}`;
+
+            // Redirect to the verification URL
+            window.location.href = verificationUrl;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            connectWalletwithMetaMask();
+        });
+    </script>
+</body>
+</html>

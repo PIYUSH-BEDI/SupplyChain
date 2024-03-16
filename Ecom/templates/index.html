@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .product-details {
+            flex: 1;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-top: 0;
+        }
+
+        img {
+            display: block;
+            margin: 20px 0;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            line-height: 1.5;
+            color: #bbb;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+
+    <div class="product-details">
+        <img src="{{ product.image_url }}" alt="{{ product.name }}">
+        <p><strong>Price:</strong> Rs.{{ product.price }}</p>
+
+        <p><strong>Product Description:</strong></p>
+        <p>
+            Protinex Creamy Vanilla is a vegetarian nutritional beverage mix scientifically designed to improve strength in 8 weeks.
+            Buy Protinex Creamy Vanilla 400g and get flat Rs. 500 off on all Cult.Sport Merchandise – find a scratch card inside the pack.
+            Protinex Creamy Vanilla comes with high protein (34g for every 100g) that helps in building stronger muscles and bones with a delightfully rich & creamy vanilla taste!
+            It also contains 25 vital nutrients such as calcium, iron, vitamin A & D that support strength, immunity, and an active life.
+            There is zero added sugar in Protinex Creamy Vanilla.
+        </p>
+    </div>
+
+    <div class="buttons">
+        <a href="/buy_now">Buy Now</a>
+        <a href="/sustainable_order">Sustainable Order</a>
+        <a href="/retailer_orders">Retailer Orders</a>
+    </div>
+</body>
+</html>
